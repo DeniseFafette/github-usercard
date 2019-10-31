@@ -69,7 +69,7 @@ followersArray.forEach((name) => {
 
     const cards = document.querySelector('.cards')
     cards.appendChild(
-      gitCard(response.data.avatar_url,response.data.name,response.data.login,response.data.location,response.data.html_url,response.data.followers,response.data.following,response.data.bio)
+      gitCard(response.data)
     )
     console.log(response);
   })
@@ -79,9 +79,8 @@ followersArray.forEach((name) => {
   })
 
   // always executed
-  .finally(function () {
-
-  });
+  //.finally(function () {
+  //});
 
 
 /* Step 3: Create a function that accepts a single object as its only argument,
@@ -104,7 +103,7 @@ followersArray.forEach((name) => {
 
 */
 
-function GitCard(gitHubProfile) {
+function gitCard(data) {
   const newCard = document.createElement('div'),
         newImage = document.createElement('img'),
         newInfo = document.createElement('div');
@@ -116,14 +115,14 @@ function GitCard(gitHubProfile) {
         newFollowing = document.createElement('p');
         newBio = document.createElement('p');
   
-        newImage.src = 'avatar_url';
-        newName.textContent = 'name';
-        newUser.textContent = 'login';
-        newLocation.textContent = 'location';
-        newProfile.src = 'html_url';
-        newFollwers.textContent = 'followers';
-        newFollowing.textContent = 'following';
-        newBio.textContent = 'bio';
+        newImage.src = data.url;
+        newName.textContent = data.name;
+        newUser.textContent = data.login;
+        newLocation.textContent = data.location;
+        newProfile.src = data.html_url;
+        newFollwers.textContent = data.followers;
+        newFollowing.textContent = data.following;
+        newBio.textContent = data.bio;
 
         newCard.classList.add('card');
         newInfo.classList.add('card-info');
