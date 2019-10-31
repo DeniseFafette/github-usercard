@@ -1,6 +1,6 @@
 /* Step 1: using axios, send a GET request to the following URL 
            (replacing the palceholder with your Github name):
-           https://api.github.com/users/<your name>
+           https://api.github.com/users/denisefafette
 */
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
@@ -15,7 +15,7 @@
 */
 
 /* Step 5: Now that you have your own card getting added to the DOM, either 
-          follow this link in your browser https://api.github.com/users/<Your github name>/followers 
+          follow this link in your browser https://api.github.com/users/denisefafette/followers 
           , manually find some other users' github handles, or use the list found 
           at the bottom of the page. Get at least 5 different Github usernames and add them as
           Individual strings to the friendsArray below.
@@ -24,7 +24,7 @@
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = [AaronShawnSoler,fishmanjohn,Rae-Glazier,coltynw,luminatrix,];
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
