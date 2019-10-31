@@ -3,18 +3,6 @@
            https://api.github.com/users/denisefafette
 */
 
-axios.get('https://api.github.com/users/denisefafette')
-  .then(function (response) {
-    // handle success
-    console.log(response);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .finally(function () {
-    // always executed
-  });
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -70,7 +58,31 @@ url: "https://api.github.com/users/DeniseFafette"
           user, and adding that card to the DOM.
 */
 
-const followersArray = ['https://api.github.com/users/AaronShawnSoler','https://api.github.com/users/fishmanjohn','https://api.github.com/users/Rae-Glazier','https://api.github.com/users/coltynw','https://api.github.com/users/luminatrix',];
+const followersArray = ['AaronShawnSoler','fishmanjohn','Rae-Glazier','coltynw','luminatrix',];
+
+followersArray.forEach((name) => {
+
+  axios.get(`https://api.github.com/users/${name}`)
+  
+  // handle success
+  .then(response => {
+
+    const cards = document.querySelector('.cards')
+    cards.appendChild(
+      gitCard(response.data.avatar_url,response.data.name,response.data.login,response.data.location,response.data.html_url,response.data.followers,response.data.following,response.data.bio)
+    )
+    console.log(response);
+  })
+
+  // handle error
+  .catch(error => console.log(error))
+  })
+
+  // always executed
+  .finally(function () {
+
+  });
+
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -130,8 +142,6 @@ function GitCard(gitHubProfile) {
   
   return GitCard;
 }
-
-const gitCardsEntryPoint = document.querySelector('.card');
 
 /* List of LS Instructors Github username's: 
   tetondan
