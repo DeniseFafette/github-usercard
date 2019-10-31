@@ -22,6 +22,39 @@ axios.get('https://api.github.com/users/denisefafette')
 
    Skip to Step 3.
 */
+/*
+avatar_url: "https://avatars2.githubusercontent.com/u/42308037?v=4"
+bio: "Connector of people, ideas and design"
+blog: ""
+company: "Fafette Design Solutions"
+created_at: "2018-08-12T02:15:49Z"
+email: null
+events_url: "https://api.github.com/users/DeniseFafette/events{/privacy}"
+followers: 9
+followers_url: "https://api.github.com/users/DeniseFafette/followers"
+following: 9
+following_url: "https://api.github.com/users/DeniseFafette/following{/other_user}"
+gists_url: "https://api.github.com/users/DeniseFafette/gists{/gist_id}"
+gravatar_id: ""
+hireable: null
+html_url: "https://github.com/DeniseFafette"
+id: 42308037
+location: "SF Bay Area"
+login: "DeniseFafette"
+name: "Denise Fafette"
+node_id: "MDQ6VXNlcjQyMzA4MDM3"
+organizations_url: "https://api.github.com/users/DeniseFafette/orgs"
+public_gists: 0
+public_repos: 30
+received_events_url: "https://api.github.com/users/DeniseFafette/received_events"
+repos_url: "https://api.github.com/users/DeniseFafette/repos"
+site_admin: false
+starred_url: "https://api.github.com/users/DeniseFafette/starred{/owner}{/repo}"
+subscriptions_url: "https://api.github.com/users/DeniseFafette/subscriptions"
+type: "User"
+updated_at: "2019-10-25T15:06:34Z"
+url: "https://api.github.com/users/DeniseFafette"
+*/
 
 /* Step 4: Pass the data received from Github into your function, 
            create a new component and add it to the DOM as a child of .cards
@@ -58,6 +91,47 @@ const followersArray = ['https://api.github.com/users/AaronShawnSoler','https://
 </div>
 
 */
+
+function GitCard(gitHubProfile) {
+  const newCard = document.createElement('div'),
+        newImage = document.createElement('img'),
+        newInfo = document.createElement('div');
+        newName = document.createElement('p');
+        newUserName = document.createElement('a');
+        newLocation = document.createElement('p');
+        newProfile = document.createElement('p');
+        newFollowers = document.createElement('p');
+        newFollowing = document.createElement('p');
+        newBio = document.createElement('p');
+  
+        newImage.src = 'avatar_url';
+        newName.textContent = 'name';
+        newUser.textContent = 'login';
+        newLocation.textContent = 'location';
+        newProfile.src = 'html_url';
+        newFollwers.textContent = 'followers';
+        newFollowing.textContent = 'following';
+        newBio.textContent = 'bio';
+
+        newCard.classList.add('card');
+        newInfo.classList.add('card-info');
+        newName.classList.add('name');
+        newUserName.classList.add('username');
+
+        newCard.appendChild(newImage);
+        newCard.appendChild(newInfo);
+        newInfo.appendChild(newName);
+        newInfo.appendChild(newUserName);
+        newInfo.appendChild(newLocation);
+        newInfo.appendChild(newProfile);
+        newInfo.appendChild(newFollowers);
+        newInfo.appendChild(newFollowing);
+        newInfo.appendChild(newBio);
+  
+  return GitCard;
+}
+
+const gitCardsEntryPoint = document.querySelector('.card');
 
 /* List of LS Instructors Github username's: 
   tetondan
